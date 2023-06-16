@@ -1,0 +1,6 @@
+*.read-me
+*.css
+*.svg
+/*.js
+node_modules
+dist

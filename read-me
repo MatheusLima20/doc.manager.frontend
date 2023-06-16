@@ -1,0 +1,89 @@
+Instalação dos plugins =>
+https: //itnext.io/auto-format-with-eslint-and-prettier-for-react-typescript-project-6526a9d44f81
+
+Regras do Eslint
+
+eslintignore
+*.read-me
+*.css
+*.svg
+/*.js
+node_modules
+dist
+_.css
+_.svg
+/\*.js
+node_modules
+dist
+
+eslinttrc.json
+
+{
+"env": {
+"es6": true,
+"browser": true,
+"jest": true,
+"node": true
+},
+"extends": [
+"plugin:react/recommended",
+"plugin:@typescript-eslint/recommended",
+"plugin:prettier/recommended"
+],
+"overrides": [],
+"parserOptions": {
+"ecmaVersion": "latest",
+"sourceType": "module",
+"ecmaFeatures": {
+"jsx": true
+}
+},
+"plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+"rules": {
+"react/react-in-jsx-scope": "off",
+"camelcase": "error",
+"spaced-comment": "error",
+"@typescript-eslint/no-explicit-any": "off",
+"react-hooks/rules-of-hooks": "error",
+"react-hooks/exhaustive-deps": "warn",
+"quotes": ["error", "single"],
+"no-duplicate-imports": "error"
+},
+"settings": {
+"react": {
+"version": "detect"
+},
+"import/resolver": {
+"typescript": {}
+}
+}
+}
+
+Regras do Prettier
+
+.prettierignore
+
+node_modules# Ignore artifacts:
+build
+coverage
+
+.prettierrc.json
+
+{
+"trailingComma": "none",
+"semi": true,
+"singleQuote": true,
+"endOfLine": "auto"
+}
+
+VsCode
+
+settings.json
+
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }

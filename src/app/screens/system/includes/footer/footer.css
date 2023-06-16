@@ -1,0 +1,15 @@
+.footer {
+    background-color: #000;
+    text-align: start;
+    color: white;
+}
+
+.link {
+    font-size: medium;
+    color: #dbdfe3;
+}
+
+.link:hover {
+    font-size: medium;
+    color: blue;
+}
