@@ -1,12 +1,12 @@
 import { Card, Col, Row, Tabs } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { HomeContentForm } from './home.content.form';
-import { SlBookOpen } from 'react-icons/sl';
-import { FaImage } from 'react-icons/fa';
+import { HomeSignature } from './home.signature';
+import { FaFileSignature } from 'react-icons/fa';
 import { HomeDocForm } from './home.doc.form';
 import { Doc } from '../../../../types/content/content';
 import { ContentController } from '../../../../controller/content/content.controller';
 import { Content } from 'antd/es/layout/layout';
+import { HiDocumentText } from 'react-icons/hi2';
 
 export const HomeScreen = () => {
     const [docs, setDocs] = useState<Doc[]>([]);
@@ -19,13 +19,13 @@ export const HomeScreen = () => {
         {
             label: (
                 <>
-                    <SlBookOpen size={20} /> Conteúdo
+                    <FaFileSignature size={20} /> Assinatura
                 </>
             ),
             key: '1',
             children: (
-                <HomeContentForm
-                    gallery={docs}
+                <HomeSignature
+                    docs={docs}
                     onClick={() => {
                         getDocs();
                     }}
@@ -35,7 +35,7 @@ export const HomeScreen = () => {
         {
             label: (
                 <>
-                    <FaImage size={20} /> Imagens
+                    <HiDocumentText size={20} /> Documentos
                 </>
             ),
             key: '2',
@@ -81,7 +81,7 @@ export const HomeScreen = () => {
 
     async function getDocs() {
         setDocs([]);
-        const request = await ContentController.getGallery();
+        const request = await ContentController.getDocs();
 
         const data: Doc[] = request.data;
 

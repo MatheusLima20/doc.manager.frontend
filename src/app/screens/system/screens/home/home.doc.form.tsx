@@ -21,6 +21,7 @@ import { ColumnsType, ColumnType, TableProps } from 'antd/es/table';
 import { FilterConfirmProps, SorterResult } from 'antd/es/table/interface';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { HomeDoc } from './home.doc';
+import { TbTrash } from 'react-icons/tb';
 
 type DataIndex = keyof Doc;
 
@@ -176,6 +177,16 @@ export const HomeDocForm = (props: Props) => {
             sortOrder: sortedInfo.columnKey === 'alt' ? sortedInfo.order : null,
             sorter: (a, b) => a.alt.localeCompare(b.alt),
             ...getColumnSearchProps('alt', 'Titulo')
+        },
+        {
+            key: 'signature',
+            title: 'Assinar',
+            width: 100,
+            render: (data: Doc) => (
+                <Button size="large" onClick={() => deleteDoc(data.id)}>
+                    <TbTrash size={30} />
+                </Button>
+            )
         }
     ];
 
@@ -322,6 +333,15 @@ export const HomeDocForm = (props: Props) => {
                                         <strong>Limpar</strong>
                                     </Button>
                                 </Col>
+
+                                <Col md={4}>
+                                    <Button
+                                        type="default"
+                                        onClick={() => props.onClick()}
+                                    >
+                                        <strong>Atualizar</strong>
+                                    </Button>
+                                </Col>
                             </Row>
                         </Col>
                     </Row>
@@ -331,7 +351,7 @@ export const HomeDocForm = (props: Props) => {
             <Col span={24}>
                 <Row gutter={[0, 30]} className="mb-5">
                     <Col md={24}>
-                        <p>Galeria de Imagens</p>
+                        <p>Documentos</p>
                     </Col>
                     <Col md={24}>
                         <Table
@@ -412,11 +432,12 @@ export const HomeDocForm = (props: Props) => {
             if (!error) {
                 handleReset();
                 setFileList([]);
+                props.onClick();
             }
         }, 1000);
     }
 
-    async function deleteImage(id: number) {
+    async function deleteDoc(id: number) {
         messageApi.open({
             key: 'platform.registration',
             type: 'loading',
@@ -433,6 +454,7 @@ export const HomeDocForm = (props: Props) => {
             content: message,
             duration: 7
         });
+        props.onClick();
     }
 
     function initTable() {
