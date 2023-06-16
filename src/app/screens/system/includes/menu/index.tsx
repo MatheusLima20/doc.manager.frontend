@@ -5,23 +5,7 @@ import './menu.css';
 import { MenuNavigation } from '../../../../types/includes/include.types';
 import { Col, Row } from 'antd';
 
-const navigateMenu: MenuNavigation[] = [
-    {
-        title: 'Missão',
-        subTitles: [{ name: 'Retiros', href: '/retreats' }]
-    },
-    {
-        title: 'Artigos',
-        subTitles: [{ name: 'Doutrinário', href: '/articles' }]
-    },
-    {
-        title: 'Sobre',
-        subTitles: [
-            { name: 'Politica de privacidade', href: '/about' },
-            { name: 'Nossa história', href: '/about' }
-        ]
-    }
-];
+const navigateMenu: MenuNavigation[] = [];
 
 export const Menu = () => {
     const [screenMobile, setScreenMobile] = useState(false);

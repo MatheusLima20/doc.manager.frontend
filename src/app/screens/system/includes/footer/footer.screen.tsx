@@ -17,9 +17,9 @@ export const FooterScreen = (props: Props) => {
 
     return (
         <Footer style={{ backgroundColor: colorPrimary }} className="mt-5 pb-5">
-            <Row justify={'start'}>
+            <Row justify={'center'}>
                 <Col span={24}>
-                    <Row justify={'space-between'} align={'middle'}>
+                    <Row justify={'center'} align={'middle'}>
                         {props.navigateMenu.map((values, index) => {
                             return (
                                 <Col key={index} md={5} className=" mt-5">

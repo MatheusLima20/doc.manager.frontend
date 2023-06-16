@@ -6,7 +6,7 @@ import './header.css';
 
 export const HeaderScreen = () => {
     const {
-        token: { colorPrimary, colorTextSecondary }
+        token: { colorPrimary }
     } = theme.useToken();
 
     return (
@@ -26,11 +26,6 @@ export const HeaderScreen = () => {
                                     src={Images.logo}
                                     alt="Sua logo aqui."
                                 />
-                            </Col>
-                            <Col className="ms-2">
-                                <p style={{ color: colorTextSecondary }}>
-                                    <strong>Missão Católica</strong>
-                                </p>
                             </Col>
                         </Row>
                     </a>

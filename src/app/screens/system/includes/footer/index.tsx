@@ -5,23 +5,7 @@ import { FooterScreen } from './footer.screen';
 import { FooterMobileScreen } from './footer.screen.mobile';
 import './footer.css';
 
-const menuFooter: MenuNavigation[] = [
-    {
-        title: 'Missão',
-        subTitles: [{ name: 'Retiros', href: '/retreats' }]
-    },
-    {
-        title: 'Artigos',
-        subTitles: [{ name: 'Doutrinário', href: '/articles' }]
-    },
-    {
-        title: 'Sobre',
-        subTitles: [
-            { name: 'Nossa história', href: '/about' },
-            { name: 'Politica de privacidade', href: '/about' }
-        ]
-    }
-];
+const menuFooter: MenuNavigation[] = [];
 
 export const Footer = () => {
     const [dimensions, setDimensions] = useState<any>({
